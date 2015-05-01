@@ -19,12 +19,14 @@ namespace GameTool
             {
                 string file = (args.Length == 0 ? @"C:\Users\Valentin Barral\Documents\Visual Studio 2013\Projects\GameTool\Game.js" : args[0]);
                 string text = System.IO.File.ReadAllText(file);
-                Debug.WriteLine(text);
                 using (var engine = new V8ScriptEngine())
                 {
-                    engine.Execute(text);
+                    
                     using (Form form = new Form())
                     {
+                        engine.AddHostObject("form", form);
+                        engine.AddHostType("Form", typeof(Form));
+                        engine.Execute(text);
                         form.Text = engine.Script.window.name;
                         form.Width = engine.Script.window.width;
                         form.Height = engine.Script.window.height;
