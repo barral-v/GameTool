@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.ClearScript.V8;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,22 +9,21 @@ namespace GameTool
 {
     public class Engine
     {
-        private Microsoft.ClearScript.V8.V8ScriptEngine SE;
-
-        public Engine(Microsoft.ClearScript.V8.V8ScriptEngine SE)
+        public Engine(Game game)
         {
-            this.SE = SE;
-            SE.AddHostObject("engine", this);
+            this.Game = game;
         }
 
-        public Window createWindow(int width, int height)
+        public Window createWindow(dynamic opts)
         {
-            return new Window(this, width, height);
+            return Game.createMainWindow(opts);
         }
 
-        public void Log(String message)
+        public void log(dynamic message)
         {
             Console.WriteLine(message);
         }
+
+        internal Game Game { get; set; }
     }
 }

@@ -1,5 +1,9 @@
-Window = engine.createWindow(800, 600)
+var Window = engine.createWindow({
+    height: 600,
+    width: 800,
+    name: "SuperJeux"
+})
 
 Window.onKeyPress(function (event) {
-    engine.log("KeyPressed: " + event.keyCode)
+   engine.log("KeyPressed: " + event.Code)
 })
