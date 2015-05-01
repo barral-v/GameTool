@@ -15,7 +15,7 @@ namespace GameTool
     {
         static void Main(string[] args)
         {
-            string file = (args.Length == 0 ? @"Game.js" : args[0]);
+            string file = (args.Length == 0 ? @"..\..\Game.js" : args[0]);
             string text = System.IO.File.ReadAllText(file);
             SE = new V8ScriptEngine();
             Engine = new Engine(SE);

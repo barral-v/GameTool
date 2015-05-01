@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameTool
 {
-    class Engine
+    public class Engine
     {
         private Microsoft.ClearScript.V8.V8ScriptEngine SE;
 
@@ -26,6 +26,11 @@ namespace GameTool
         public void onKeyPress(onKeyPressDel callback)
         {
 
+        }
+
+        public void Log(String message)
+        {
+            Console.WriteLine(message);
         }
     }
 }

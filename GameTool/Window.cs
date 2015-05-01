@@ -7,11 +7,13 @@ using System.Windows.Forms;
 
 namespace GameTool
 {
-    class Window
+    public class Window
     {
         private Engine Engine;
         private int Width;
         private int Height;
+        
+        public delegate void onKeyPressDel();
 
         private Form Form { get; set; }
 
@@ -26,5 +28,9 @@ namespace GameTool
             Form.ShowDialog();
         }
 
+        public void onKeyPress(onKeyPressDel callback)
+        {
+            Console.WriteLine("it's here");
+        }
     }
 }
