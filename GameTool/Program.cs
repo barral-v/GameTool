@@ -15,29 +15,15 @@ namespace GameTool
     {
         static void Main(string[] args)
         {
-            try
-            {
-                string file = (args.Length == 0 ? @"Game.js" : args[0]);
-                string text = System.IO.File.ReadAllText(file);
-                using (var engine = new V8ScriptEngine())
-                {
-                    
-                    using (Form form = new Form())
-                    {
-                        engine.AddHostObject("form", form);
-                        engine.AddHostType("Form", typeof(Form));
-                        engine.Execute(text);
-                        form.Text = engine.Script.window.name;
-                        form.Width = engine.Script.window.width;
-                        form.Height = engine.Script.window.height;
-                        form.ShowDialog();
-                    }
-                }
-            }
-            catch (IOException e)
-            {
-                Debug.WriteLine(e.Message);
-            }
+            string file = (args.Length == 0 ? @"Game.js" : args[0]);
+            string text = System.IO.File.ReadAllText(file);
+            SE = new V8ScriptEngine();
+            Engine = new Engine(SE);
+            SE.Execute(text);
         }
+        
+        private static V8ScriptEngine SE { get; set; }
+
+        private static Engine Engine { get; set; }
     }
 }
