@@ -13,7 +13,7 @@ namespace GameTool
         private int Width;
         private int Height;
         
-        public delegate void onKeyPressDel();
+        public delegate void onKeyPressDel(String evt);
 
         private Form Form { get; set; }
 
@@ -25,7 +25,7 @@ namespace GameTool
             this.Form = new Form();
             Form.Height = height;
             Form.Width = width;
-            Form.ShowDialog();
+            Form.Show();
         }
 
         public void onKeyPress(onKeyPressDel callback)

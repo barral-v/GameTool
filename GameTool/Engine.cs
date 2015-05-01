@@ -10,8 +10,6 @@ namespace GameTool
     {
         private Microsoft.ClearScript.V8.V8ScriptEngine SE;
 
-        public delegate void onKeyPressDel();
-
         public Engine(Microsoft.ClearScript.V8.V8ScriptEngine SE)
         {
             this.SE = SE;
@@ -21,11 +19,6 @@ namespace GameTool
         public Window createWindow(int width, int height)
         {
             return new Window(this, width, height);
-        }
-
-        public void onKeyPress(onKeyPressDel callback)
-        {
-
         }
 
         public void Log(String message)

@@ -1,5 +1,5 @@
-var Window = engine.createWindow(800, 600)
+Window = engine.createWindow(800, 600)
 
 Window.onKeyPress(function (event) {
-    engine.log("KeyPressed: " + event.keyCode)
+   engine.log("KeyPressed: " + event.keyCode)
 })
