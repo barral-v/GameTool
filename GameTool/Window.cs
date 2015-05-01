@@ -1,36 +1,41 @@
-﻿using System;
+﻿using Microsoft.ClearScript;
+using SFML.Window;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GameTool
 {
     public class Window
     {
-        private Engine Engine;
-        private int Width;
-        private int Height;
-        
-        public delegate void onKeyPressDel(String evt);
-
-        private Form Form { get; set; }
-
-        public Window(Engine engine, int width, int height)
+        public Window(Game game, dynamic opts)
         {
-            this.Engine = engine;
-            this.Width = width;
-            this.Height = height;
-            this.Form = new Form();
-            Form.Height = height;
-            Form.Width = width;
-            Form.Show();
+            this.Game = game;
+            Width = 800;
+            Height = 600;
+            Name = "GameTool";
+
+            if (opts != null)
+            {
+                Width = (uint)opts.width;
+                Height = (uint)opts.height;
+                Name = (string)opts.name;
+            }
         }
 
-        public void onKeyPress(onKeyPressDel callback)
+        public void onKeyPress(dynamic callback)
         {
-            Console.WriteLine("it's here");
+            Game.MainWindow.KeyPressed += new EventHandler<KeyEventArgs>(delegate(object sender, KeyEventArgs e) {
+                Console.WriteLine(e.Code.ToString());
+                callback(e);
+            });
         }
+
+        internal Game Game { get; set; }
+
+        public uint Width { get; internal set; }
+        public uint Height { get; internal set; }
+        public string Name { get; internal set; }
     }
 }

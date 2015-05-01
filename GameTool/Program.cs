@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.ClearScript;
 using System.Diagnostics;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace GameTool
 {
@@ -16,14 +17,10 @@ namespace GameTool
         static void Main(string[] args)
         {
             string file = (args.Length == 0 ? @"..\..\Game.js" : args[0]);
-            string text = System.IO.File.ReadAllText(file);
-            SE = new V8ScriptEngine(V8ScriptEngineFlags.EnableDebugging);
-            Engine = new Engine(SE);
-            SE.Execute(text);
+            Game = new Game(file);
+            Game.run();
         }
-        
-        private static V8ScriptEngine SE { get; set; }
 
-        private static Engine Engine { get; set; }
+        public static Game Game { get; set; }
     }
 }
