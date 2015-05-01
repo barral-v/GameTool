@@ -28,7 +28,7 @@ namespace GameTool
             Form.Show();
         }
 
-        public void onKeyPress(onKeyPressDel callback)
+        public void onKeyPress(dynamic callback)
         {
             Console.WriteLine("it's here");
         }
