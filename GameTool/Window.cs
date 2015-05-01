@@ -32,6 +32,13 @@ namespace GameTool
             });
         }
 
+        public void onClose(dynamic callback)
+        {
+            Game.MainWindow.Closed += new EventHandler(delegate(object sender, EventArgs e) {
+                callback(e);
+            });
+        }
+
         internal Game Game { get; set; }
 
         public uint Width { get; internal set; }

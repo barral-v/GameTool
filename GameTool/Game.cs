@@ -32,6 +32,11 @@ namespace GameTool
             }
         }
 
+        public void quit()
+        {
+            MainWindow.Close();
+        }
+
         public Window createMainWindow(dynamic opts)
         {
             if (MainWindow != null)

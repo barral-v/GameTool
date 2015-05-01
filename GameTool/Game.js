@@ -7,3 +7,7 @@ var Window = engine.createWindow({
 Window.onKeyPress(function (event) {
    engine.log("KeyPressed: " + event.Code)
 })
+
+Window.onClose(function (event) {
+    engine.quit()
+})

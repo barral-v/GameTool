@@ -24,6 +24,11 @@ namespace GameTool
             Console.WriteLine(message);
         }
 
+        public void quit()
+        {
+            this.Game.quit();
+        }
+
         internal Game Game { get; set; }
     }
 }
