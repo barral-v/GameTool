@@ -24,12 +24,7 @@ namespace GameTool
                     
                     using (Form form = new Form())
                     {
-                        engine.AddHostObject("form", form);
-                        engine.AddHostType("Form", typeof(Form));
                         engine.Execute(text);
-                        form.Text = engine.Script.window.name;
-                        form.Width = engine.Script.window.width;
-                        form.Height = engine.Script.window.height;
                         form.ShowDialog();
                     }
                 }
