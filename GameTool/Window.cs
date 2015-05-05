@@ -41,35 +41,35 @@ namespace GameTool
         public void onJoystickButtonPressed(dynamic callback)
         {
             Game.MainWindow.JoystickButtonPressed += new EventHandler<JoystickButtonEventArgs>(delegate(object sender, JoystickButtonEventArgs e) {
-                callback(e);
+                callback(new EventJoystickButton(e));
             });
         }
 
         public void onJoystickButtonReleased(dynamic callback)
         {
             Game.MainWindow.JoystickButtonReleased += new EventHandler<JoystickButtonEventArgs>(delegate(object sender, JoystickButtonEventArgs e) {
-                callback(e);
+                callback(new EventJoystickButton(e));
             });
         }
 
         public void onJoystickConnected(dynamic callback)
         {
             Game.MainWindow.JoystickConnected += new EventHandler<JoystickConnectEventArgs>(delegate(object sender, JoystickConnectEventArgs e) {
-                callback(e);
+                callback(new EventJoystickConnect(e));
             });
         }
 
         public void onJoystickDisconnected(dynamic callback)
         {
             Game.MainWindow.JoystickDisconnected += new EventHandler<JoystickConnectEventArgs>(delegate(object sender, JoystickConnectEventArgs e) {
-                callback(e);
+                callback(new EventJoystickConnect(e));
             });
         }
 
         public void onJoystickMoved(dynamic callback)
         {
             Game.MainWindow.JoystickMoved += new EventHandler<JoystickMoveEventArgs>(delegate(object sender, JoystickMoveEventArgs e) {
-                callback(e);
+                callback(new EventJoystickMove(e));
             });
         }
 
@@ -77,14 +77,14 @@ namespace GameTool
         {
             Game.MainWindow.KeyPressed += new EventHandler<KeyEventArgs>(delegate(object sender, KeyEventArgs e) {
                 Console.WriteLine(e.Code.ToString());
-                callback(e);
+                callback(new EventKey(e));
             });
         }
 
         public void onKeyReleased(dynamic callback)
         {
             Game.MainWindow.KeyReleased += new EventHandler<KeyEventArgs>(delegate(object sender, KeyEventArgs e) {
-                callback(e);
+                callback(new EventKey(e));
             });
         }
 
@@ -98,14 +98,14 @@ namespace GameTool
         public void onMouseButtonPressed(dynamic callback)
         {
             Game.MainWindow.MouseButtonPressed += new EventHandler<MouseButtonEventArgs>(delegate(object sender, MouseButtonEventArgs e) {
-                callback(e);
+                callback(new EventMouseButton(e));
             });
         }
 
         public void onMouseButtonReleased(dynamic callback)
         {
             Game.MainWindow.MouseButtonReleased += new EventHandler<MouseButtonEventArgs>(delegate(object sender, MouseButtonEventArgs e) {
-                callback(e);
+                callback(new EventMouseButton(e));
             });
         }
 
@@ -126,42 +126,42 @@ namespace GameTool
         public void onMouseMoved(dynamic callback)
         {
             Game.MainWindow.MouseMoved += new EventHandler<MouseMoveEventArgs>(delegate(object sender, MouseMoveEventArgs e) {
-                callback(e);
+                callback(new EventMouseMove(e));
             });
         }
 
         public void onMouseWheelMoved(dynamic callback)
         {
             Game.MainWindow.MouseWheelMoved += new EventHandler<MouseWheelEventArgs>(delegate(object sender, MouseWheelEventArgs e) {
-                callback(e);
+                callback(new EventMouseWheel(e));
             });
         }
 
         public void onResized(dynamic callback)
         {
             Game.MainWindow.Resized += new EventHandler<SizeEventArgs>(delegate(object sender, SizeEventArgs e) {
-                callback(e);
+                callback(new EventSize(e));
             });
         }
 
         public void onSensorChanged(dynamic callback)
         {
             Game.MainWindow.SensorChanged += new EventHandler<SensorEventArgs>(delegate(object sender, SensorEventArgs e) {
-                callback(e);
+                callback(new EventSensor(e));
             });
         }
 
         public void onTextEntered(dynamic callback)
         {
             Game.MainWindow.TextEntered += new EventHandler<TextEventArgs>(delegate(object sender, TextEventArgs e) {
-                callback(e);
+                callback(new EventText(e));
             });
         }
 
         public void onTouchBegan(dynamic callback)
         {
             Game.MainWindow.TouchBegan += new EventHandler<TouchEventArgs>(delegate(object sender, TouchEventArgs e) {
-                callback(e);
+                callback(new EventTouch(e));
             });
         }
 
@@ -169,7 +169,7 @@ namespace GameTool
         {
             Game.MainWindow.TouchEnded += new EventHandler<TouchEventArgs>(delegate(object sender, TouchEventArgs e)
             {
-                callback(e);
+                callback(new EventTouch(e));
             });
         }
 
@@ -177,7 +177,7 @@ namespace GameTool
         {
             Game.MainWindow.TouchMoved += new EventHandler<TouchEventArgs>(delegate(object sender, TouchEventArgs e)
             {
-                callback(e);
+                callback(new EventTouch(e));
             });
         }
 

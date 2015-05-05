@@ -63,8 +63,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Engine.cs" />
+    <Compile Include="EventJoystickButton.cs" />
+    <Compile Include="EventJoystickConnect.cs" />
+    <Compile Include="EventJoystickMove.cs" />
+    <Compile Include="EventKey.cs" />
+    <Compile Include="EventMouseButton.cs" />
+    <Compile Include="EventMouseMove.cs" />
+    <Compile Include="EventMouseWheel.cs" />
+    <Compile Include="EventSensor.cs" />
+    <Compile Include="EventSize.cs" />
+    <Compile Include="EventText.cs" />
+    <Compile Include="EventTouch.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="KeyEvent.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Window.cs" />
