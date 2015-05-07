@@ -19,6 +19,11 @@ namespace GameTool
             return Game.createMainWindow(opts);
         }
 
+        public Entity createNewEntity(dynamic opts)
+        {
+            return Game.createNewEntity(opts);
+        }
+
         public void log(dynamic message)
         {
             Console.WriteLine(message);

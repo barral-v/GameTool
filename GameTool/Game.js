@@ -11,3 +11,7 @@ Window.onKeyPress(function (event) {
 Window.onClose(function (event) {
     engine.quit()
 })
+
+var Entity1 = engine.createNewEntity({
+    name: "testentity"
+})

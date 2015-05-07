@@ -17,6 +17,7 @@ namespace GameTool
             this.SE = new V8ScriptEngine(V8ScriptEngineFlags.EnableDebugging);
             this.SE.AddHostObject("engine", this.Engine);
             this.SE.Execute(text);
+            this.EntityList = new List<Entity>();
         }
 
         public void run()
@@ -51,9 +52,16 @@ namespace GameTool
             return ScriptWindow;
         }
 
+        public Entity createNewEntity(dynamic opts)
+        {
+            this.EntityList.Add(new Entity(this, opts));
+            return this.EntityList.Last();
+        }
+
         public V8ScriptEngine SE { get; internal set; }
         public Engine Engine { get; internal set; }
         public SFML.Window.Window MainWindow { get; internal set; }
         public Window ScriptWindow { get; internal set; }
+        public List<Entity> EntityList { get; internal set; }
     }
 }

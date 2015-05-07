@@ -167,16 +167,14 @@ namespace GameTool
 
         public void onTouchEnded(dynamic callback)
         {
-            Game.MainWindow.TouchEnded += new EventHandler<TouchEventArgs>(delegate(object sender, TouchEventArgs e)
-            {
+            Game.MainWindow.TouchEnded += new EventHandler<TouchEventArgs>(delegate(object sender, TouchEventArgs e){
                 callback(new EventTouch(e));
             });
         }
 
         public void onTouchMoved(dynamic callback)
         {
-            Game.MainWindow.TouchMoved += new EventHandler<TouchEventArgs>(delegate(object sender, TouchEventArgs e)
-            {
+            Game.MainWindow.TouchMoved += new EventHandler<TouchEventArgs>(delegate(object sender, TouchEventArgs e){
                 callback(new EventTouch(e));
             });
         }

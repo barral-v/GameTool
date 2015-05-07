@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Engine.cs" />
+    <Compile Include="Entity.cs" />
     <Compile Include="EventJoystickButton.cs" />
     <Compile Include="EventJoystickConnect.cs" />
     <Compile Include="EventJoystickMove.cs" />
