@@ -17,7 +17,6 @@ namespace GameTool
             this.SE = new V8ScriptEngine(V8ScriptEngineFlags.EnableDebugging);
             this.SE.AddHostObject("engine", this.Engine);
             this.SE.Execute(text);
-            this.EntityList = new List<Entity>();
         }
 
         public void run()
@@ -54,8 +53,11 @@ namespace GameTool
 
         public Entity createNewEntity(dynamic opts)
         {
-            this.EntityList.Add(new Entity(this, opts));
-            return this.EntityList.Last();
+            Entity ent = new Entity(this, opts);
+            if (this.EntityList == null)
+                this.EntityList = new List<Entity>();
+            this.EntityList.Add(ent);
+            return ent;
         }
 
         public V8ScriptEngine SE { get; internal set; }

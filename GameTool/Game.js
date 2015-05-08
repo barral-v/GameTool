@@ -15,3 +15,7 @@ Window.onClose(function (event) {
 var Entity1 = engine.createNewEntity({
     name: "testentity"
 })
+
+var Entity2 = engine.createNewEntity({
+    name: "testentity2"
+})
