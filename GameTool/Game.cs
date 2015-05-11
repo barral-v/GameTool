@@ -32,6 +32,7 @@ namespace GameTool
             while (MainWindow.IsOpen)
             {
                 MainWindow.WaitAndDispatchEvents();
+                MainWindow.Clear();
                 foreach (Entity ent in this.EntityList)
                 {
                     ent.draw(MainWindow);

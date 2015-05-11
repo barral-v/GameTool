@@ -4,10 +4,6 @@ var Window = engine.createWindow({
     name: "SuperJeux"
 })
 
-Window.onKeyPress(function (event) {
-   engine.log("KeyPressed: " + event.Code)
-})
-
 Window.onClose(function (event) {
     engine.quit()
 })
@@ -28,3 +24,14 @@ Entity2.setPosition(200.0, 200.0)
 Entity2.setSize(100.0, 40.0)
 Entity2.setColor(0, 255, 0)
 
+Window.onKeyPress(function (event) {
+    if (event.Code == "Up")
+        Entity1.move(0.0, -10.0)
+    else if (event.Code == "Down")
+        Entity1.move(0.0, 10.0)
+    else if (event.Code == "Left")
+        Entity1.move(-10.0, 0.0)
+    else if (event.Code == "Right")
+        Entity1.move(10.0, 0.0)
+    engine.log("KeyPressed: " + event.Code)
+})

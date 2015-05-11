@@ -42,6 +42,13 @@ namespace GameTool
             this.Shape.Texture = new Texture(@"..\..\Textures\" + textureName);
         }
 
+        public void move(float movX, float movY)
+        {
+            this.PosX += movX;
+            this.PosY += movY;
+            this.Shape.Position = new SFML.System.Vector2f(this.PosX, this.PosY);
+        }
+
         public void draw(RenderWindow win)
         {
             this.Shape.Draw(win, RenderStates.Default);
