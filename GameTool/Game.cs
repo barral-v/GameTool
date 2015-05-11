@@ -3,6 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using SFML.Window;
+using SFML.Graphics;
+using SFML.System;
 
 namespace GameTool
 {
@@ -26,9 +29,17 @@ namespace GameTool
                 Console.WriteLine("Error: no window created !");
                 return;
             }
+            /*SFML.Graphics.RectangleShape rect = new RectangleShape(new SFML.System.Vector2f(20.20F, 30.30F));
+            rect.FillColor = SFML.Graphics.Color.Magenta;
+            rect.Draw(MainWindow, RenderStates.Default);*/ 
             while (MainWindow.IsOpen)
             {
                 MainWindow.WaitAndDispatchEvents();
+                foreach (Entity ent in this.EntityList)
+                {
+                    ent.draw(MainWindow);
+                }
+                MainWindow.Display();
             }
         }
 
@@ -46,7 +57,7 @@ namespace GameTool
             else
             {
                 ScriptWindow = new Window(this, opts);
-                MainWindow = new SFML.Window.Window(new SFML.Window.VideoMode(ScriptWindow.Width, ScriptWindow.Height), ScriptWindow.Name);
+                MainWindow = new RenderWindow(new SFML.Window.VideoMode(ScriptWindow.Width, ScriptWindow.Height), ScriptWindow.Name);
             }
             return ScriptWindow;
         }
@@ -62,7 +73,7 @@ namespace GameTool
 
         public V8ScriptEngine SE { get; internal set; }
         public Engine Engine { get; internal set; }
-        public SFML.Window.Window MainWindow { get; internal set; }
+        public RenderWindow MainWindow { get; internal set; }
         public Window ScriptWindow { get; internal set; }
         public List<Entity> EntityList { get; internal set; }
     }
