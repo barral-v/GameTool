@@ -15,6 +15,7 @@ namespace GameTool
             this.Game = game;
             this.Name = (string)opts.name;
             this.Shape = new RectangleShape();
+            this.Visible = true;
         }
 
         public void setPosition(float posX, float posY)
@@ -49,14 +50,21 @@ namespace GameTool
             this.Shape.Position = new SFML.System.Vector2f(this.PosX, this.PosY);
         }
 
+        public void setVisible(bool vis)
+        {
+            this.Visible = vis;
+        }
+
         public void draw(RenderWindow win)
         {
-            this.Shape.Draw(win, RenderStates.Default);
+            if (this.Visible)
+                this.Shape.Draw(win, RenderStates.Default);
         }
 
         internal Game Game { get; set; }
         private RectangleShape Shape { get; set; }
         public string Name { get; internal set; }
+        public bool Visible { get; private set; }
         public float PosX { get; internal set; }
         public float PosY { get; internal set; }
         public float SizeX { get; internal set; }
