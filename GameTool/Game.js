@@ -17,8 +17,8 @@ var Entity1 = engine.createNewEntity({
 })
 
 Entity1.setPosition(20.0, 30.0)
-Entity1.setSize(20.0, 60.0)
-Entity1.setColor(255, 0, 0)
+Entity1.setSize(100.0, 100.0)
+Entity1.setTexture("goomba.jpg")
 
 var Entity2 = engine.createNewEntity({
     name: "testentity2"

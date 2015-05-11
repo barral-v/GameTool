@@ -36,6 +36,12 @@ namespace GameTool
             this.Shape.FillColor = new Color((byte)red, (byte)green, (byte)blue);
         }
 
+        public void setTexture(string textureName)
+        {
+
+            this.Shape.Texture = new Texture(@"..\..\Textures\" + textureName);
+        }
+
         public void draw(RenderWindow win)
         {
             this.Shape.Draw(win, RenderStates.Default);

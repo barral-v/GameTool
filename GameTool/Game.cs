@@ -29,9 +29,6 @@ namespace GameTool
                 Console.WriteLine("Error: no window created !");
                 return;
             }
-            /*SFML.Graphics.RectangleShape rect = new RectangleShape(new SFML.System.Vector2f(20.20F, 30.30F));
-            rect.FillColor = SFML.Graphics.Color.Magenta;
-            rect.Draw(MainWindow, RenderStates.Default);*/ 
             while (MainWindow.IsOpen)
             {
                 MainWindow.WaitAndDispatchEvents();
