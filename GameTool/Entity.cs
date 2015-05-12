@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SFML.Graphics;
 using SFML.Window;
+using SFML.System;
 
 namespace GameTool
 {
@@ -14,7 +15,7 @@ namespace GameTool
         {
             this.Game = game;
             this.Name = (string)opts.name;
-            this.Shape = new RectangleShape();
+            this.Sprite = new Sprite();
             this.Visible = true;
         }
 
@@ -22,32 +23,25 @@ namespace GameTool
         {
             this.PosX = posX;
             this.PosY = posY;
-            this.Shape.Position = new SFML.System.Vector2f(posX, posY);
+            this.Sprite.Position = new Vector2f(posX, posY);
         }
 
-        public void setSize(float sizeX, float sizeY)
+        public void setScale(float scaleX, float scaleY)
         {
-            this.SizeX = sizeX;
-            this.SizeY = sizeY;
-            this.Shape.Size = new SFML.System.Vector2f(sizeX, sizeY);
+            this.Sprite.Scale = new Vector2f(scaleX, scaleY);
         }
 
-        public void setColor(int red, int green, int blue) 
-        {
-            this.Shape.FillColor = new Color((byte)red, (byte)green, (byte)blue);
-        }
 
         public void setTexture(string textureName)
         {
-
-            this.Shape.Texture = new Texture(@"..\..\Textures\" + textureName);
+            this.Sprite.Texture = new Texture(@"..\..\Textures\" + textureName);
         }
 
         public void move(float movX, float movY)
         {
             this.PosX += movX;
             this.PosY += movY;
-            this.Shape.Position = new SFML.System.Vector2f(this.PosX, this.PosY);
+            this.Sprite.Position = new SFML.System.Vector2f(this.PosX, this.PosY);
         }
 
         public void setVisible(bool vis)
@@ -58,16 +52,27 @@ namespace GameTool
         public void draw(RenderWindow win)
         {
             if (this.Visible)
-                this.Shape.Draw(win, RenderStates.Default);
+                this.Sprite.Draw(win, RenderStates.Default);
+        }
+
+        public FloatRect getGlobalBound()
+        {
+            return this.Sprite.GetGlobalBounds();
+        }
+
+
+        public bool checkCollision(Entity ent)
+        {
+            FloatRect rect1 = this.Sprite.GetGlobalBounds();
+            FloatRect rect2 = ent.getGlobalBound();
+            return (rect1.Intersects(rect2));
         }
 
         internal Game Game { get; set; }
-        private RectangleShape Shape { get; set; }
+        private Sprite Sprite { get; set; }
         public string Name { get; internal set; }
         public bool Visible { get; private set; }
         public float PosX { get; internal set; }
         public float PosY { get; internal set; }
-        public float SizeX { get; internal set; }
-        public float SizeY { get; internal set; }
     }
 }
