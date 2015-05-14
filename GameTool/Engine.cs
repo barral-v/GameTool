@@ -18,10 +18,20 @@ namespace GameTool
         {
             return Game.createMainWindow(opts);
         }
-
+        
         public Entity createNewEntity(dynamic opts)
         {
             return Game.createNewEntity(opts);
+        }
+
+        public void setEventLoop(dynamic call)
+        {
+            this.callback = call;
+        }
+
+        public void eventLoop()
+        {
+            this.callback();
         }
 
         public void log(dynamic message)
@@ -34,6 +44,7 @@ namespace GameTool
             this.Game.quit();
         }
 
+        internal dynamic callback { get; set; }
         internal Game Game { get; set; }
     }
 }

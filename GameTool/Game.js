@@ -26,6 +26,10 @@ Entity2.setPosition(200.0, 300.0)
 Entity2.setTexture("goomba.jpg")
 Entity2.setRotation(90.0)
 
+engine.setEventLoop(function () {
+    Entity1.move(10.0, 0.0)
+})
+
 Window.onKeyPress(function (event) {
     if (!Entity1.checkCollision(Entity2)) {
         if (event.Code == "Up")
