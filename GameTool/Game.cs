@@ -70,6 +70,11 @@ namespace GameTool
             return ent;
         }
 
+        public void deleteEntity(Entity ent)
+        {
+            this.EntityList.Remove(ent);
+        }
+
         public V8ScriptEngine SE { get; internal set; }
         public Engine Engine { get; internal set; }
         public RenderWindow MainWindow { get; internal set; }

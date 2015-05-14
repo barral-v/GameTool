@@ -24,6 +24,11 @@ namespace GameTool
             return Game.createNewEntity(opts);
         }
 
+        public void deleteEntity(Entity ent)
+        {
+            Game.deleteEntity(ent);
+        }
+
         public void setEventLoop(dynamic call)
         {
             this.callback = call;

@@ -30,6 +30,8 @@ engine.setEventLoop(function () {
     Entity1.move(10.0, 0.0)
 })
 
+engine.deleteEntity(Entity2)
+
 Window.onKeyPress(function (event) {
     if (!Entity1.checkCollision(Entity2)) {
         if (event.Code == "Up")
