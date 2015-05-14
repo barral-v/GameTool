@@ -37,6 +37,16 @@ namespace GameTool
             this.Sprite.Texture = new Texture(@"..\..\Textures\" + textureName);
         }
 
+        public void setRotation(float angle)
+        {
+            this.Sprite.Rotation = angle;
+        }
+
+        public void modifyRotation(float angle)
+        {
+            this.Sprite.Rotation += angle;
+        }
+
         public void move(float movX, float movY)
         {
             this.PosX += movX;

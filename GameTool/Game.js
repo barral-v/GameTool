@@ -15,6 +15,7 @@ var Entity1 = engine.createNewEntity({
 Entity1.setPosition(20.0, 30.0)
 Entity1.setScale(0.50, 0.50)
 Entity1.setTexture("goomba.jpg")
+Entity1.modifyRotation(25.0)
 
 
 var Entity2 = engine.createNewEntity({
@@ -23,6 +24,7 @@ var Entity2 = engine.createNewEntity({
 
 Entity2.setPosition(200.0, 300.0)
 Entity2.setTexture("goomba.jpg")
+Entity2.setRotation(90.0)
 
 Window.onKeyPress(function (event) {
     if (!Entity1.checkCollision(Entity2)) {
