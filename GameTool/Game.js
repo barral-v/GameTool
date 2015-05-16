@@ -8,40 +8,54 @@ Window.onClose(function (event) {
     engine.quit()
 })
 
-var Entity1 = engine.createNewEntity({
-    name: "testentity"
+var Goomba = engine.createNewEntity({
+    name: "goomba"
 })
 
-Entity1.setPosition(20.0, 30.0)
-Entity1.setScale(0.50, 0.50)
-Entity1.setTexture("goomba.jpg")
-Entity1.modifyRotation(25.0)
+Goomba.setPosition(20.0, 30.0)
+Goomba.setTexture("goomba.jpg")
 
 
-var Entity2 = engine.createNewEntity({
-    name: "testentity2"
+var Coin1 = engine.createNewEntity({
+    name: "coin1"
 })
 
-Entity2.setPosition(200.0, 300.0)
-Entity2.setTexture("goomba.jpg")
-Entity2.setRotation(90.0)
+Coin1.setPosition(20.0, 300.0)
+Coin1.setTexture("coin.png")
+
+var Coin2 = engine.createNewEntity({
+    name:"coin2"
+})
+
+Coin2.setPosition(100.0, 30.0)
+Coin2.setTexture("coin.png")
+
+var Coin3 = engine.createNewEntity({
+    name:"coin3"
+})
+
+Coin3.setPosition(400.0, 3000.0)
+Coin3.setTexture("coin.png")
 
 engine.setEventLoop(function () {
-    Entity1.move(10.0, 0.0)
 })
 
-engine.deleteEntity(Entity2)
-
 Window.onKeyPress(function (event) {
-    if (!Entity1.checkCollision(Entity2)) {
         if (event.Code == "Up")
-            Entity1.move(0.0, -10.0)
-        else if (event.Code == "Down")
-            Entity1.move(0.0, 10.0)
-        else if (event.Code == "Left")
-            Entity1.move(-10.0, 0.0)
-        else if (event.Code == "Right")
-            Entity1.move(10.0, 0.0)
-    }
+            Goomba.move(0.0, -10.0)
+        if (event.Code == "Down")
+            Goomba.move(0.0, 10.0)
+        if (event.Code == "Left")
+            Goomba.move(-10.0, 0.0)
+        if (event.Code == "Right")
+            Goomba.move(10.0, 0.0)
+
+        if (Goomba.checkCollision(Coin1))
+            engine.deleteEntity(Coin1)
+        else if (Goomba.checkCollision(Coin2))
+            engine.deleteEntity(Coin2)
+        else if (Goomba.checkCollision(Coin2))
+            engine.deleteEntity(Coin2)
+
     engine.log("KeyPressed: " + event.Code)
 })

@@ -98,6 +98,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Game.js" />
+    <Content Include="Textures\coin.png" />
     <Content Include="Textures\goomba.jpg" />
     <Content Include="v8-ia32.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
