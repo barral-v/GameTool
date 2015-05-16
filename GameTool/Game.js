@@ -13,6 +13,7 @@ var Goomba = engine.createNewEntity({
 })
 
 Goomba.setPosition(20.0, 30.0)
+Goomba.setScale(0.4,0.4)
 Goomba.setTexture("goomba.jpg")
 
 
@@ -21,6 +22,7 @@ var Coin1 = engine.createNewEntity({
 })
 
 Coin1.setPosition(20.0, 300.0)
+Coin1.setScale(0.2, 0.2)
 Coin1.setTexture("coin.png")
 
 var Coin2 = engine.createNewEntity({
@@ -28,13 +30,15 @@ var Coin2 = engine.createNewEntity({
 })
 
 Coin2.setPosition(100.0, 30.0)
+Coin2.setScale(0.2, 0.2)
 Coin2.setTexture("coin.png")
 
 var Coin3 = engine.createNewEntity({
     name:"coin3"
 })
 
-Coin3.setPosition(400.0, 3000.0)
+Coin3.setPosition(400.0, 300.0)
+Coin3.setScale(0.2, 0.2)
 Coin3.setTexture("coin.png")
 
 engine.setEventLoop(function () {
@@ -54,8 +58,8 @@ Window.onKeyPress(function (event) {
             engine.deleteEntity(Coin1)
         else if (Goomba.checkCollision(Coin2))
             engine.deleteEntity(Coin2)
-        else if (Goomba.checkCollision(Coin2))
-            engine.deleteEntity(Coin2)
+        else if (Goomba.checkCollision(Coin3))
+            engine.deleteEntity(Coin3)
 
     engine.log("KeyPressed: " + event.Code)
 })

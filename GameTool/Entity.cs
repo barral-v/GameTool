@@ -26,9 +26,9 @@ namespace GameTool
             this.Sprite.Position = new Vector2f(posX, posY);
         }
 
-        public void setScale(float scaleX, float scaleY)
+        public void setScale(double scaleX, double scaleY)
         {
-            this.Sprite.Scale = new Vector2f(scaleX, scaleY);
+            this.Sprite.Scale = new Vector2f((float)scaleX, (float)scaleY);
         }
 
 
